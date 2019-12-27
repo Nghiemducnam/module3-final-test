@@ -1,0 +1,17 @@
+<a [routerLink]="''">Những sách chưa đọc</a>
+<h3 class="panel-title">Danh sách Books đã đọc</h3>
+<div class="panel-body">
+  <table>
+    <tr>
+      <th>Book name</th>
+      <th>Book status</th>
+    </tr>
+    <tr *ngFor="let item of bookList">
+      <td *ngIf="item.read">{{item.name}}</td>
+      <td>
+        <button *ngIf="item.read" (click)="changeStatus(item)" class="btn btn-warning">Đọc lại</button>
+      </td>
+    </tr>
+  </table>
+</div>
+

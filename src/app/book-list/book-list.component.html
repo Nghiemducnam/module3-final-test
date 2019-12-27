@@ -1,0 +1,33 @@
+<a [routerLink]="'book-read'">Những sách đã đọc</a>
+<h3 class="panel-title">Books List</h3>
+<div class="panel-body">
+  <table>
+    <tr>
+      <th>Book name</th>
+      <th>Book status</th>
+    </tr>
+    <tr *ngFor="let item of bookList">
+      <td *ngIf="!item.read">{{item.name}}</td>
+      <td>
+        <button *ngIf="!item.read" (click)="changeStatus(item)" class="btn btn-success">Chưa đọc</button>
+      </td>
+    </tr>
+  </table>
+</div>
+
+<br>
+
+<form [formGroup]="createForm" (ngSubmit)="addBook()" class="col-md-6 offset-md-3">
+  <table>
+    <tr>
+      <td><input type="text" placeholder="Enter a new book" formControlName="name" class="form-control"></td>
+      <td>
+        <button class="btn btn-info" type="submit">Thêm</button>
+      </td>
+    </tr>
+  </table>
+</form>
+
+
+
+
