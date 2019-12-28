@@ -1,13 +1,13 @@
 import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
-import {IBook} from './models/IBook';
+import {IBook} from '../models/IBook';
 import {Observable} from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class BookService {
-  private readonly API_URL = 'http://localhost:8081/books';
+  private readonly API_URL = 'http://localhost:8080/books/';
 
   constructor(private http: HttpClient) {
   }
@@ -25,6 +25,7 @@ export class BookService {
   }
 
   editBook(book: IBook): Observable<any> {
-    return this.http.put(this.API_URL, book);
+    // return this.http.put(this.API_URL, book);
+    return this.http.put<IBook>(`${this.API_URL}/${book.id}`, book);
   }
 }

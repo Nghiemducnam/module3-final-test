@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {IBook} from '../services/models/IBook';
+import {IBook} from '../models/IBook';
 import {BookService} from '../services/book.service';
 
 @Component({
